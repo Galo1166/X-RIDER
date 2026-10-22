@@ -1,0 +1,35 @@
+{
+  "name": "x-rider",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:web\" \"npm:dev:api\"",
+    "predev:web": "node scripts/copy-maplibre-worker.cjs",
+    "dev:web": "next dev",
+    "dev:api": "node --watch server/index.cjs",
+    "prebuild": "node scripts/copy-maplibre-worker.cjs",
+    "build": "next build",
+    "prestart": "node scripts/copy-maplibre-worker.cjs",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.3",
+    "better-sqlite3": "^12.4.1",
+    "express": "^4.21.2",
+    "lucide-react": "^1.56.0",
+    "maplibre-gl": "^6.15.0",
+    "multer": "^2.4.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/multer": "^2.3.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.6.0"
+  }
+}
